@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UNAD - Asesor de Transición</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              unad: {
+                blue: '#003366',
+                orange: '#FF9900',
+                yellow: '#FFCC00',
+                light: '#f0f4f8'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      @media print {
+        /* Reset global styles for print */
+        body, html, #root {
+          height: auto !important;
+          width: 100% !important;
+          overflow: visible !important;
+          background-color: white !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        /* Hide ALL UI elements by default */
+        header, footer, nav, .no-print, button, input, .bg-unad-blue, .shadow-md {
+          display: none !important;
+        }
+
+        /* Hide the left column (stats/list) in the grid */
+        .lg\:col-span-1 {
+          display: none !important;
+        }
+
+        /* Target the Report Component specifically */
+        #printable-report {
+          display: block !important;
+          visibility: visible !important;
+          position: relative !important;
+          left: 0 !important;
+          top: 0 !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          margin: 0 !important;
+          padding: 20px !important;
+          border: none !important;
+          box-shadow: none !important;
+        }
+
+        /* Ensure text is black for printing */
+        * {
+          color: black !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        /* Force the right column (where report lives) to be full width */
+        .lg\:col-span-2 {
+          width: 100% !important;
+          grid-column: span 12 !important;
+          display: block !important;
+        }
+        
+        /* Hide parent grid layout constraints */
+        .grid {
+          display: block !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "html2pdf.js": "https://aistudiocdn.com/html2pdf.js@^0.12.1",
+    "jszip": "https://aistudiocdn.com/jszip@^3.10.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
